@@ -7,7 +7,11 @@ const fs = require('fs');
 const { phoneNumberFormatter } = require('./helpers/formatter');
 const fileUpload = require('express-fileupload');
 const axios = require('axios');
+const conexion = require("./conexion");
+//var router = express.Router();
+const { connect } = require('http2');
 const port = process.env.PORT || 8000;
+
 
 const app = express();
 const server = http.createServer(app);
@@ -37,6 +41,97 @@ app.get('/', (req, res) => {
 });
 
 //inicio
+
+app.get('/insertar', (req, res) => {
+  conexion.query('SELECT * FROM clientes;', (error, resultados) => {
+      if(error) return console.error(error.message);
+
+      if(resultados.length > 0){
+          res.json(resultados);
+      } else {
+          res.send('No hay registros');
+      }
+  });
+});
+
+app.get('/insertar/:id', (req, res) => {
+  const {id} = req.params;
+
+  conexion.query(`SELECT * FROM clientes WHERE id=${id};`, (error, resultado) => {
+      if(error) return console.error(error.message);
+
+      if(resultado.length > 0){
+          res.json(resultado);
+      } else {
+          res.send('No hay registros');
+      }
+  });
+});
+
+app.post('/add', (req, res) => {
+  const cliente = {
+      nombre: req.body.nombre,
+      telefono: req.body.telefono,
+      estado: req.body.estado,
+      fecha: req.body.fecha
+  };
+
+  const query = `INSERT INTO clientes SET ?`;
+
+  conexion.query(query, cliente, (error)=> {
+      if(error) return console.error(error.message);
+
+      res.send(`se inserto correctamente el cliente`);
+  });
+});
+
+app.put('/update/:id', (req, res) => {
+  const {id} = req.params;
+
+  const {nombre, telefono, estado, fecha} = req.body;
+
+  const query = `UPDATE clientes SET nombre='${nombre}', telefono='${telefono}', estado='${estado}', fecha='${fecha} WHERE id='${id}';`;
+  conexion.query(query, (error) => {
+      if(error) return console.error(error.message);
+
+      res.send(`Se actualizo correctamente el registro ${id}`);
+  });
+});
+
+app.delete('/delete/:id', (req, res) => {
+  const {id} = req.params;
+
+  const query = `DELETE FROM clientes WHERE id=${id}`;
+
+  conexion.query(query, (error) => {
+      if(error) return console.error(error.message);
+
+      res.send(`Se eliminó correctamente el registro ${id}`);
+  });
+});
+
+
+
+//fin
+
+//inicio
+
+//Inserta un nuevo registro y recepciona en método post los datos de nombre y correo
+// app.get('/in', (req, res, next) => {
+//    res.json({nombre : res.nombre, telefono : res.telefono, 
+//             estados : res.estados, fecha : res.fecha});
+
+
+
+//             conexion.query("SELECT * FROM clientes", function (err, datosResultado) {
+//               if (!err) {
+//                   console.log(datosResultado);
+//                   res.render('clientes', { title: 'nuestros clientes', productos:datosResultado });
+//               }
+      
+//           })
+            
+//   });
 
 
 //fin
@@ -243,3 +338,6 @@ app.post('/send-message', async (req, res) => {
 server.listen(port, function() {
   console.log('App running on *: ' + port);
 });
+
+//module.exports = app;
+
