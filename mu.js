@@ -90,7 +90,7 @@ app.put('/update/:id', (req, res) => {
 
   const {nombre, telefono, estado, fecha} = req.body;
 
-  const query = `UPDATE clientes SET nombre='${nombre}', telefono='${telefono}', estado='${estado}', fecha='${fecha} WHERE id='${id}';`;
+  const query = `UPDATE clientes SET nombre='${nombre}', telefono='${telefono}', estado='${estado}', fecha='${fecha}' WHERE id='${id}';`;
   conexion.query(query, (error) => {
       if(error) return console.error(error.message);
 
@@ -290,7 +290,7 @@ io.on('connection', function(socket) {
 
 // Send message
 app.post('/send-message', async (req, res) => {
-  console.log(req);
+  //console.log(req);
 
   const sender = req.body.sender;
   const number = phoneNumberFormatter(req.body.number);
