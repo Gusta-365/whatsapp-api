@@ -1,0 +1,92 @@
+2022/09/27-20:50:24.046 6f20 Reusing MANIFEST C:\Users\gusta\Desktop\a7\medidas\src\components\whatsapp-api-tutorial\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/09/27-20:50:24.049 6f20 Recovering log #3331
+2022/09/27-20:50:24.126 6f20 Reusing old log C:\Users\gusta\Desktop\a7\medidas\src\components\whatsapp-api-tutorial\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/003331.log 
+2022/09/27-20:50:38.414 8cd4 Compacting 1@1 + 11@2 files
+2022/09/27-20:50:38.647 8cd4 Generated table #3357@1: 6429 keys, 2164791 bytes
+2022/09/27-20:50:38.772 8cd4 Generated table #3358@1: 5050 keys, 2166684 bytes
+2022/09/27-20:50:38.993 8cd4 Generated table #3359@1: 4569 keys, 2164993 bytes
+2022/09/27-20:50:39.787 8cd4 Generated table #3360@1: 5226 keys, 2163881 bytes
+2022/09/27-20:50:40.167 8cd4 Generated table #3361@1: 23312 keys, 2186377 bytes
+2022/09/27-20:50:41.399 8cd4 Generated table #3362@1: 46093 keys, 2220071 bytes
+2022/09/27-20:50:41.856 8cd4 Generated table #3363@1: 31169 keys, 2250759 bytes
+2022/09/27-20:50:42.238 8cd4 Generated table #3364@1: 31308 keys, 2253572 bytes
+2022/09/27-20:50:42.491 8cd4 Generated table #3365@1: 30948 keys, 2247825 bytes
+2022/09/27-20:50:42.888 8cd4 Generated table #3366@1: 30740 keys, 2248238 bytes
+2022/09/27-20:50:43.060 8cd4 Generated table #3367@1: 9088 keys, 658772 bytes
+2022/09/27-20:50:43.060 8cd4 Compacted 1@1 + 11@2 files => 22725963 bytes
+2022/09/27-20:50:43.163 8cd4 compacted to: files[ 0 0 35 0 0 0 0 ]
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3280
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3281
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3310
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3311
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3312
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3313
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3314
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3315
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3316
+2022/09/27-20:50:43.165 8cd4 Delete type=2 #3317
+2022/09/27-20:50:43.166 8cd4 Delete type=2 #3318
+2022/09/27-20:50:43.166 8cd4 Delete type=2 #3334
+2022/09/27-21:03:52.587 58a0 Level-0 table #3369: started
+2022/09/27-21:03:52.720 58a0 Level-0 table #3369: 1244705 bytes OK
+2022/09/27-21:03:52.775 58a0 Delete type=0 #3331
+2022/09/27-21:05:53.393 58a0 Compacting 1@0 + 0@1 files
+2022/09/27-21:05:53.537 58a0 Generated table #3370@0: 17788 keys, 476507 bytes
+2022/09/27-21:05:53.574 58a0 Generated table #3371@0: 113 keys, 8837 bytes
+2022/09/27-21:05:53.615 58a0 Generated table #3372@0: 557 keys, 22131 bytes
+2022/09/27-21:05:53.676 58a0 Generated table #3373@0: 7 keys, 391 bytes
+2022/09/27-21:05:53.676 58a0 Compacted 1@0 + 0@1 files => 507866 bytes
+2022/09/27-21:05:53.714 58a0 compacted to: files[ 0 4 35 0 0 0 0 ]
+2022/09/27-21:05:53.714 58a0 Delete type=2 #3369
+2022/09/27-21:11:51.893 58a0 Compacting 1@1 + 10@2 files
+2022/09/27-21:11:52.604 58a0 Generated table #3374@1: 27660 keys, 2225757 bytes
+2022/09/27-21:11:53.126 58a0 Generated table #3375@1: 24345 keys, 2284121 bytes
+2022/09/27-21:11:54.399 58a0 Generated table #3376@1: 56255 keys, 2366951 bytes
+2022/09/27-21:11:54.892 58a0 Generated table #3377@1: 6481 keys, 2169304 bytes
+2022/09/27-21:11:55.242 58a0 Generated table #3378@1: 4338 keys, 2164789 bytes
+2022/09/27-21:11:55.659 58a0 Generated table #3379@1: 4127 keys, 2160816 bytes
+2022/09/27-21:11:56.022 58a0 Generated table #3380@1: 3893 keys, 2161524 bytes
+2022/09/27-21:11:56.438 58a0 Generated table #3381@1: 3912 keys, 2161188 bytes
+2022/09/27-21:11:56.889 58a0 Generated table #3382@1: 4440 keys, 2169201 bytes
+2022/09/27-21:11:57.295 58a0 Generated table #3383@1: 4986 keys, 2162781 bytes
+2022/09/27-21:11:57.367 58a0 Generated table #3384@1: 403 keys, 178353 bytes
+2022/09/27-21:11:57.367 58a0 Compacted 1@1 + 10@2 files => 22204785 bytes
+2022/09/27-21:11:57.393 58a0 compacted to: files[ 0 3 36 0 0 0 0 ]
+2022/09/27-21:11:57.394 58a0 Delete type=2 #3336
+2022/09/27-21:11:57.394 58a0 Delete type=2 #3337
+2022/09/27-21:11:57.394 58a0 Delete type=2 #3338
+2022/09/27-21:11:57.394 58a0 Delete type=2 #3339
+2022/09/27-21:11:57.394 58a0 Delete type=2 #3340
+2022/09/27-21:11:57.395 58a0 Delete type=2 #3341
+2022/09/27-21:11:57.395 58a0 Delete type=2 #3342
+2022/09/27-21:11:57.395 58a0 Delete type=2 #3343
+2022/09/27-21:11:57.395 58a0 Delete type=2 #3344
+2022/09/27-21:11:57.395 58a0 Delete type=2 #3345
+2022/09/27-21:11:57.395 58a0 Delete type=2 #3370
+2022/09/27-21:22:51.334 9a10 Compacting 1@1 + 12@2 files
+2022/09/27-21:22:52.348 9a10 Generated table #3385@1: 30739 keys, 2247145 bytes
+2022/09/27-21:22:53.326 9a10 Generated table #3386@1: 31277 keys, 2245140 bytes
+2022/09/27-21:22:54.166 9a10 Generated table #3387@1: 29649 keys, 2233141 bytes
+2022/09/27-21:22:55.848 9a10 Generated table #3388@1: 22825 keys, 2153874 bytes
+2022/09/27-21:22:56.905 9a10 Generated table #3389@1: 23058 keys, 2154624 bytes
+2022/09/27-21:22:58.061 9a10 Generated table #3390@1: 116377 keys, 2271274 bytes
+2022/09/27-21:22:59.044 9a10 Generated table #3391@1: 108469 keys, 2258780 bytes
+2022/09/27-21:23:00.858 9a10 Generated table #3392@1: 102191 keys, 2252568 bytes
+2022/09/27-21:23:01.782 9a10 Generated table #3393@1: 102732 keys, 2253819 bytes
+2022/09/27-21:23:02.735 9a10 Generated table #3394@1: 102498 keys, 2253488 bytes
+2022/09/27-21:23:02.977 9a10 Generated table #3395@1: 31131 keys, 684734 bytes
+2022/09/27-21:23:02.977 9a10 Compacted 1@1 + 12@2 files => 23008587 bytes
+2022/09/27-21:23:03.037 9a10 compacted to: files[ 0 2 35 0 0 0 0 ]
+2022/09/27-21:23:03.039 9a10 Delete type=2 #3237
+2022/09/27-21:23:03.039 9a10 Delete type=2 #3282
+2022/09/27-21:23:03.039 9a10 Delete type=2 #3347
+2022/09/27-21:23:03.039 9a10 Delete type=2 #3348
+2022/09/27-21:23:03.039 9a10 Delete type=2 #3349
+2022/09/27-21:23:03.039 9a10 Delete type=2 #3350
+2022/09/27-21:23:03.039 9a10 Delete type=2 #3351
+2022/09/27-21:23:03.039 9a10 Delete type=2 #3352
+2022/09/27-21:23:03.040 9a10 Delete type=2 #3353
+2022/09/27-21:23:03.040 9a10 Delete type=2 #3354
+2022/09/27-21:23:03.040 9a10 Delete type=2 #3366
+2022/09/27-21:23:03.040 9a10 Delete type=2 #3367
+2022/09/27-21:23:03.040 9a10 Delete type=2 #3372
