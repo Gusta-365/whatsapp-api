@@ -9,7 +9,7 @@ const { phoneNumberFormatter } = require('./helpers/formatter');
 const fileUpload = require('express-fileupload');
 const axios = require('axios');
 const mime = require('mime-types');
-
+const connection = require('./conexion');
 
 const port = process.env.PORT || 8000;
 
@@ -39,6 +39,109 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/env', (req, res) => {
+
+  respuesta = {
+
+  };
+  res.send(respuesta);
+  setTimeout(enviarmensaje, 2000);
+
+});
+
+app.get('/insertar', (req, res) => {
+  conexion.query('SELECT * FROM clientes;', (error, resultados) => {
+    if (error) return console.error(error.message);
+
+    if (resultados.length > 0) {
+      res.json(resultados);
+    } else {
+      res.send('No hay registros');
+    }
+  });
+});
+
+app.get('/insertar/:id', (req, res) => {
+  const { id } = req.params;
+
+  conexion.query(`SELECT * FROM clientes WHERE id=${id};`, (error, resultado) => {
+    if (error) return console.error(error.message);
+
+    if (resultado.length > 0) {
+      res.json(resultado);
+    } else {
+      res.send('No hay registros');
+    }
+  });
+});
+
+app.post('/add', (req, res) => {
+  const cliente = {
+    nombre: req.body.nombre,
+    telefono: req.body.telefono,
+    estado: req.body.estado,
+    fecha: req.body.fecha
+  };
+
+  const query = `INSERT INTO clientes SET ?`;
+
+  conexion.query(query, cliente, (error) => {
+    if (error) return console.error(error.message);
+
+    res.send(`se inserto correctamente el cliente`);
+  });
+});
+
+app.put('/update/:id', (req, res) => {
+  const { id } = req.params;
+
+  const { nombre, telefono, estado, fecha } = req.body;
+
+  const query = `UPDATE clientes SET nombre='${nombre}', telefono='${telefono}', estado='${estado}', fecha='${fecha}' WHERE id='${id}';`;
+  conexion.query(query, (error) => {
+    if (error) return console.error(error.message);
+
+    res.send(`Se actualizo correctamente el registro ${id}`);
+  });
+});
+
+app.delete('/delete/:id', (req, res) => {
+  const { id } = req.params;
+
+  const query = `DELETE FROM clientes WHERE id=${id}`;
+
+  conexion.query(query, (error) => {
+    if (error) return console.error(error.message);
+
+    res.send(`Se eliminó correctamente el registro ${id}`);
+  });
+});
+
+const enviarmensaje = () => {
+  connection.query('SELECT * FROM clientes',
+      function (error, result, fields) {
+          if (error) throw error;
+
+          result.forEach(element => {
+              console.log(element.fecha);
+              tel = element.telefono;
+
+              mensaje = element.controlEnviado;
+              console.log(mensaje + " - " + tel);
+
+              const chatId = tel + "@c.us";
+              console.log('Primero');
+              client.sendMessage(chatId, mensaje);
+
+          })
+      });
+
+
+  //FIN
+}
+
+
+
 const client = new Client({
   restartOnAuthFail: true,
   puppeteer: {
@@ -58,11 +161,11 @@ const client = new Client({
 });
 
 client.on('message', msg => {
-  if (msg.body == '!ping') {
-    msg.reply('pong');
-  } else if (msg.body == 'good morning') {
-    msg.reply('selamat pagi');
-  } else if (msg.body == '!groups') {
+  if (msg.body == 'hola') {
+    msg.reply('este es un bot di jaja');
+  } else if (msg.body == 'jaja') {
+    msg.reply('listo, muchas gracias, me dices grupos');
+  } else if (msg.body == 'grupos') {
     client.getChats().then(chats => {
       const groups = chats.filter(chat => chat.isGroup);
 
@@ -73,56 +176,59 @@ client.on('message', msg => {
         groups.forEach((group, i) => {
           replyMsg += `ID: ${group.id._serialized}\nName: ${group.name}\n\n`;
         });
-        replyMsg += '_You can use the group id to send a message to the group._'
+        replyMsg += '_estos son tus grupos._'
         msg.reply(replyMsg);
       }
     });
   }
 
+
+  
+
   // NOTE!
   // UNCOMMENT THE SCRIPT BELOW IF YOU WANT TO SAVE THE MESSAGE MEDIA FILES
   // Downloading media
-  // if (msg.hasMedia) {
-  //   msg.downloadMedia().then(media => {
-  //     // To better understanding
-  //     // Please look at the console what data we get
-  //     console.log(media);
+  if (msg.hasMedia) {
+    msg.downloadMedia().then(media => {
+      // To better understanding
+      // Please look at the console what data we get
+      console.log(media);
 
-  //     if (media) {
-  //       // The folder to store: change as you want!
-  //       // Create if not exists
-  //       const mediaPath = './downloaded-media/';
+      if (media) {
+        // The folder to store: change as you want!
+        // Create if not exists
+        const mediaPath = './downloaded-media/';
 
-  //       if (!fs.existsSync(mediaPath)) {
-  //         fs.mkdirSync(mediaPath);
-  //       }
+        if (!fs.existsSync(mediaPath)) {
+          fs.mkdirSync(mediaPath);
+        }
 
-  //       // Get the file extension by mime-type
-  //       const extension = mime.extension(media.mimetype);
-        
-  //       // Filename: change as you want! 
-  //       // I will use the time for this example
-  //       // Why not use media.filename? Because the value is not certain exists
-  //       const filename = new Date().getTime();
+        // Get the file extension by mime-type
+        const extension = mime.extension(media.mimetype);
 
-  //       const fullFilename = mediaPath + filename + '.' + extension;
+        // Filename: change as you want! 
+        // I will use the time for this example
+        // Why not use media.filename? Because the value is not certain exists
+        const filename = new Date().getTime();
 
-  //       // Save to file
-  //       try {
-  //         fs.writeFileSync(fullFilename, media.data, { encoding: 'base64' }); 
-  //         console.log('File downloaded successfully!', fullFilename);
-  //       } catch (err) {
-  //         console.log('Failed to save the file:', err);
-  //       }
-  //     }
-  //   });
-  // }
+        const fullFilename = mediaPath + filename + '.' + extension;
+
+        // Save to file
+        try {
+          fs.writeFileSync(fullFilename, media.data, { encoding: 'base64' });
+          console.log('File downloaded successfully!', fullFilename);
+        } catch (err) {
+          console.log('Failed to save the file:', err);
+        }
+      }
+    });
+  }
 });
 
 client.initialize();
 
 // Socket IO
-io.on('connection', function(socket) {
+io.on('connection', function (socket) {
   socket.emit('message', 'Connecting...');
 
   client.on('qr', (qr) => {
@@ -144,7 +250,7 @@ io.on('connection', function(socket) {
     console.log('AUTHENTICATED');
   });
 
-  client.on('auth_failure', function(session) {
+  client.on('auth_failure', function (session) {
     socket.emit('message', 'Auth failure, restarting...');
   });
 
@@ -156,7 +262,7 @@ io.on('connection', function(socket) {
 });
 
 
-const checkRegisteredNumber = async function(number) {
+const checkRegisteredNumber = async function (number) {
   const isRegistered = await client.isRegisteredUser(number);
   return isRegistered;
 }
@@ -238,9 +344,9 @@ app.post('/send-media', async (req, res) => {
   });
 });
 
-const findGroupByName = async function(name) {
+const findGroupByName = async function (name) {
   const group = await client.getChats().then(chats => {
-    return chats.find(chat => 
+    return chats.find(chat =>
       chat.isGroup && chat.name.toLowerCase() == name.toLowerCase()
     );
   });
@@ -329,7 +435,7 @@ app.post('/clear-message', [
   }
 
   const chat = await client.getChatById(number);
-  
+
   chat.clearMessages().then(status => {
     res.status(200).json({
       status: true,
@@ -343,6 +449,6 @@ app.post('/clear-message', [
   })
 });
 
-server.listen(port, function() {
+server.listen(port, function () {
   console.log('App running on *: ' + port);
 });

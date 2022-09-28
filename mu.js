@@ -10,6 +10,7 @@ const axios = require('axios');
 const conexion = require("./conexion");
 //var router = express.Router();
 const { connect } = require('http2');
+const connection = require('./conexion');
 const port = process.env.PORT || 8000;
 
 
@@ -292,11 +293,18 @@ io.on('connection', function(socket) {
 app.post('/send-message', async (req, res) => {
   //console.log(req);
 
+
+
   const sender = req.body.sender;
   const number = phoneNumberFormatter(req.body.number);
   const message = req.body.message;
 
   const client = sessions.find(sess => sess.id == sender)?.client;
+
+  connection.query('SELECT * FROM clientes', function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
 
   // Make sure the sender is exists & ready
   if (!client) {
@@ -321,6 +329,14 @@ app.post('/send-message', async (req, res) => {
       message: 'The number is not registered'
     });
   }
+
+
+    
+  
+  
+
+  
+
 
   client.sendMessage(number, message).then(response => {
     res.status(200).json({
