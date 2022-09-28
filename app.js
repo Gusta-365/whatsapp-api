@@ -49,7 +49,7 @@ app.get('/env', (req, res) => {
 
 });
 
-app.get('/insertar', (req, res) => {
+app.get('/consulta', (req, res) => {
   conexion.query('SELECT * FROM clientes;', (error, resultados) => {
     if (error) return console.error(error.message);
 
@@ -61,7 +61,7 @@ app.get('/insertar', (req, res) => {
   });
 });
 
-app.get('/insertar/:id', (req, res) => {
+app.get('/consulta/:id', (req, res) => {
   const { id } = req.params;
 
   conexion.query(`SELECT * FROM clientes WHERE id=${id};`, (error, resultado) => {
@@ -75,7 +75,7 @@ app.get('/insertar/:id', (req, res) => {
   });
 });
 
-app.post('/add', (req, res) => {
+app.post('/insertar', (req, res) => {
   const cliente = {
     nombre: req.body.nombre,
     telefono: req.body.telefono,
@@ -92,7 +92,7 @@ app.post('/add', (req, res) => {
   });
 });
 
-app.put('/update/:id', (req, res) => {
+app.put('/actualizar/:id', (req, res) => {
   const { id } = req.params;
 
   const { nombre, telefono, estado, fecha } = req.body;
@@ -105,7 +105,7 @@ app.put('/update/:id', (req, res) => {
   });
 });
 
-app.delete('/delete/:id', (req, res) => {
+app.delete('/borrar/:id', (req, res) => {
   const { id } = req.params;
 
   const query = `DELETE FROM clientes WHERE id=${id}`;
@@ -116,6 +116,8 @@ app.delete('/delete/:id', (req, res) => {
     res.send(`Se eliminó correctamente el registro ${id}`);
   });
 });
+
+
 
 const enviarmensaje = () => {
   connection.query('SELECT * FROM clientes',
