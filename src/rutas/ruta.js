@@ -1,6 +1,6 @@
 
 const express = require('express');
-const conexion = require('../../conexion');
+const conexion = require('../bd/conexion');
 const router = express.Router();
 
 

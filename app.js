@@ -9,7 +9,7 @@ const { phoneNumberFormatter } = require('./helpers/formatter');
 const fileUpload = require('express-fileupload');
 const axios = require('axios');
 const mime = require('mime-types');
-const connection = require('./conexion');
+const connection = require('./src/bd/conexion');
 const router = require('./src/rutas/ruta');
 
 
@@ -39,7 +39,7 @@ app.use(fileUpload({
 }));
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', {
+  res.sendFile('./src/html/index.html', {
     root: __dirname
   });
 });
