@@ -2,6 +2,7 @@
 const express = require('express');
 const conexion = require('../bd/conexion');
 const router = express.Router();
+var mysql = require('mysql');
 
 
 
@@ -72,6 +73,36 @@ router.delete('/borrar/:id', (req, res) => {
         res.send(`Se eliminó correctamente el registro ${id}`);
     });
 });
+
+router.get('/envio', (req, res) => {
+
+    respuesta = {
+
+    };
+    res.send(respuesta);
+    setTimeout(enviomensaje, 2000);
+
+});
+
+function enviomensaje() {
+    let date = new Date().toISOString().split('T')[0]
+    let consultaEstado = "SELECT * FROM sends WHERE messege='"
+    //let query = mysql.format(consultaEstado);
+    let query = mysql.format(consultaEstado,[date]);
+    conexion.query(query, function (err, result) {
+        result.forEach(element => {
+            tel = element.phone;
+            mensaje = "Buenos días, .";
+            console.log(mensaje + " - " + tel);
+            const chatId = tel + "@c.us";
+            console.log('Primero ' + element.id);
+            client.sendMessage(chatId, mensaje);
+            console.log("a");
+        }
+        )
+
+    })
+}
 
 
 

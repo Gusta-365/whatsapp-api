@@ -1,0 +1,22 @@
+2022/10/13-19:23:53.368 4be4 Reusing MANIFEST C:\Users\gusta\Desktop\a7\medidas\src\components\whatsapp-api-tutorial\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/10/13-19:23:53.369 4be4 Recovering log #105
+2022/10/13-19:23:53.574 4be4 Reusing old log C:\Users\gusta\Desktop\a7\medidas\src\components\whatsapp-api-tutorial\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000105.log 
+2022/10/13-19:24:08.160 d48 Level-0 table #115: started
+2022/10/13-19:24:08.370 d48 Level-0 table #115: 1247319 bytes OK
+2022/10/13-19:24:08.447 d48 Delete type=0 #105
+2022/10/13-19:24:08.680 44b0 Compacting 1@1 + 6@2 files
+2022/10/13-19:24:08.992 44b0 Generated table #116@1: 33139 keys, 2239893 bytes
+2022/10/13-19:24:09.512 44b0 Generated table #117@1: 3140 keys, 2165053 bytes
+2022/10/13-19:24:10.269 44b0 Generated table #118@1: 14842 keys, 2202164 bytes
+2022/10/13-19:24:11.410 44b0 Generated table #119@1: 21290 keys, 2222635 bytes
+2022/10/13-19:24:12.077 44b0 Generated table #120@1: 94745 keys, 2243732 bytes
+2022/10/13-19:24:12.457 44b0 Generated table #121@1: 36029 keys, 779228 bytes
+2022/10/13-19:24:12.457 44b0 Compacted 1@1 + 6@2 files => 11852705 bytes
+2022/10/13-19:24:12.513 44b0 compacted to: files[ 0 0 6 0 0 0 0 ]
+2022/10/13-19:24:12.513 44b0 Delete type=2 #107
+2022/10/13-19:24:12.513 44b0 Delete type=2 #108
+2022/10/13-19:24:12.513 44b0 Delete type=2 #109
+2022/10/13-19:24:12.513 44b0 Delete type=2 #110
+2022/10/13-19:24:12.513 44b0 Delete type=2 #111
+2022/10/13-19:24:12.513 44b0 Delete type=2 #112
+2022/10/13-19:24:12.513 44b0 Delete type=2 #115

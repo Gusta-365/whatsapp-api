@@ -98,9 +98,9 @@ const enviarmensaje = () => {
 
 client.on('message', msg => {
   if (msg.body == 'hola') {
-    msg.reply('este es un bot di jaja');
-  } else if (msg.body == 'jaja') {
-    msg.reply('listo, muchas gracias, me dices grupos');
+    msg.reply('oye mi mashita jajaja nos vamos a corea o que :3, ta solo nos falta poco para graduarnos jsjs :3 ahora di si acepto');
+  } else if (msg.body == 'si acepto') {
+    msg.reply('eres especial para mi me debes unas gomitas jsjsj me los daras jsjsj eres bella');
   } else if (msg.body == 'grupos') {
     client.getChats().then(chats => {
       const groups = chats.filter(chat => chat.isGroup);
